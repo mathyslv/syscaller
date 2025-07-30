@@ -7,5 +7,9 @@
 !.github/**
 !.gitignore
 !README.md
+!Cargo.toml
+!Cargo.lock
+!LICENSE.md
+!deny.toml
 !/syscaller/
 !/syscaller-wrap-macro/
