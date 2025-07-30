@@ -1,0 +1,11 @@
+*
+!examples/
+!examples/**
+!tests/
+!tests/**
+!.github/
+!.github/**
+!.gitignore
+!README.md
+!/syscaller/
+!/syscaller-wrap-macro/
