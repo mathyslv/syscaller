@@ -2,8 +2,8 @@ use proc_macro::TokenStream;
 use quote::quote;
 use syn::parenthesized;
 use syn::{
-    parse::Parse, parse_macro_input, parse_quote, punctuated::Punctuated, Ident, LitInt, Token,
-    Type,
+    Ident, LitInt, Token, Type, parse::Parse, parse_macro_input, parse_quote,
+    punctuated::Punctuated,
 };
 
 struct SyscallInputs(Vec<SyscallInput>);
@@ -84,6 +84,7 @@ enum BaseType {
     Void,
 
     // Custom types (struct foo, union bar, etc.)
+    #[allow(dead_code)]
     Custom(String),
 }
 
@@ -334,7 +335,7 @@ fn generate_syscall_wrapper(def: SyscallInput) -> proc_macro2::TokenStream {
         _ => {
             return quote! {
                 compile_error!("Syscalls with more than 6 arguments are not supported");
-            }
+            };
         }
     };
 

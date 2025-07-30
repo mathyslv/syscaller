@@ -2,6 +2,18 @@
 members = ["syscaller", "syscaller-wrap-macro"]
 resolver = "2"
 
+[workspace.package]
+authors = ["mathyslv <mathys.lv@hotmail.com>"]
+categories = ["os::linux-apis", "development-tools", "no-std", "api-bindings"]
+documentation = "https://docs.rs/syscaller"
+edition = "2024"
+homepage = "https://github.com/mathyslv/syscaller"
+keywords = ["linux", "syscalls", "in-memory"]
+license = "MIT OR Apache-2.0"
+repository = "https://github.com/mathyslv/syscaller"
+rust-version = "1.85.1"
+version = "0.1.0"
+
 [profile.release]
 panic = "abort"
 opt-level = "z"
