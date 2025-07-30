@@ -1,5 +1,6 @@
 [package]
 name = "syscaller"
+description = "No-std Linux direct syscall library"
 
 authors.workspace = true
 categories.workspace = true

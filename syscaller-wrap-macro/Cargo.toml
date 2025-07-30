@@ -1,5 +1,6 @@
 [package]
 name = "syscaller-wrap-macro"
+description = "Procedural macro for parsing C function signatures into syscall wrappers for syscaller crate"
 
 authors.workspace = true
 categories.workspace = true
