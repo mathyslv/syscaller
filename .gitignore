@@ -9,7 +9,7 @@
 !README.md
 !Cargo.toml
 !Cargo.lock
-!LICENSE.md
+!LICENSE*
 !deny.toml
 !/syscaller/
 !/syscaller-wrap-macro/
