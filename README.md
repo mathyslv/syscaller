@@ -30,32 +30,64 @@ syscaller = { version = "0.1", features = ["macro"] }
 
 ### Direct Assembly Usage
 
+`syscaller` defines 7 basic, low-level functions that allow to invoke a Linux syscall with 0 to 6 arguments
+(`syscall0(...)`  to `syscall6(...)`).
+
+Their signatures are `syscallX(syscallId: usize, args...: usize)`.
+
 ```rust
 use syscaller::*;
 
-unsafe {
-    // Direct syscall with raw numbers and arguments
-    let result = syscall1(1, b"Hello, World!\n".as_ptr() as usize); // write syscall
+let written = unsafe { syscall1(1, b"Hello, World!\n".as_ptr() as usize) }; // write syscall
+```
+
+### Macro Usage
+
+The `wrap_syscall` proc-macro allow convenient conversion between C-like functions and syscallX calls.
+
+**Syntax**
+
+```rs
+wrap_syscall! {
+    syscallId1 : C-style-signature,
+    syscallId2 : C-style-signature,
+    ...
 }
 ```
 
-### Procedural Macro Usage
+**Example**
+
+The following :
 
 ```rust
-use syscaller::wrap_syscall;
-
-wrap_syscall! {
+syscall::wrap_syscall! {
     1 : ssize_t write(int fd, void *buf, size_t count),
-    57 : int fork(),
     59 : int execve(const char *path, char *const *argv, char *const *envp),
-    319 : int memfd_create(const char *name, unsigned int flags),
+}
+```
+
+Will generate this :
+
+```rs
+#[inline(always)]
+pub unsafe fn write(fd: i32, buf: *mut u8, count: usize) -> isize {
+    unsafe { syscaller::syscall3(1, fd as usize, buf as usize, count) as isize }
 }
 
-// Now you can use type-safe wrappers
-unsafe {
-    let bytes_written = write(1, b"Hello from syscaller!\n".as_ptr() as *const _, 22);
-    let pid = fork();
+#[inline(always)]
+pub unsafe fn execve(path: impl AsRef<[u8]>, argv: *mut u8, envp: *mut u8) -> i32 {
+    unsafe {
+        syscaller::syscall3(59, path.as_ref().as_ptr() as usize, argv as usize, envp as usize) as i32
+    }
 }
+```
+
+You can then use this more convenient function :
+
+```rs
+const HELLO: &str = "Hello, world!";
+
+unsafe { write(1, HELLO.as_ptr().cast_mut(), HELLO.len()) };
 ```
 
 ## Architecture
@@ -90,15 +122,11 @@ The macro crate provides type-safe wrapper generation:
 ## Platform Support
 
 Currently supports:
-- **Linux x86_64** - Full support with hand-optimized assembly
+- **Linux x86_64**
 
 Planned support:
 - Linux ARM64
 - Linux x86
-
-## Examples
-
-See the [`syscaller-wrap-macro`](syscaller-wrap-macro/) directory for detailed usage examples.
 
 ## License
 
