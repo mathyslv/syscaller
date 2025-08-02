@@ -1,11 +1,11 @@
 # Name of the workflow: you can change it.
 name: Release-plz
 
-# The action runs on every push to the main branch.
+# The action runs on every push to the master branch.
 on:
   push:
     branches:
-      - main
+      - master
 
 jobs:
 
