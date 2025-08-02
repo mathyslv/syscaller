@@ -1,10 +1,13 @@
-*
+/*
+/*/
 !examples/
 !examples/**
 !tests/
 !tests/**
 !.github/
 !.github/**
+!.git/
+!.git/**
 !.gitignore
 !README.md
 !Cargo.toml
