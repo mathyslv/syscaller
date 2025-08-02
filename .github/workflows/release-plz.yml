@@ -56,8 +56,6 @@ jobs:
           fetch-depth: 0
       - name: Install Rust toolchain
         uses: dtolnay/rust-toolchain@stable
-      - name: List directory contents
-        run: ls -la
       - name: Run release-plz
         uses: release-plz/action@v0.5
         with:
