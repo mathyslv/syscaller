@@ -16,3 +16,5 @@
 !deny.toml
 !/syscaller/
 !/syscaller-wrap-macro/
+!CHANGELOG.md
+
