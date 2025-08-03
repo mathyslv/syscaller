@@ -17,4 +17,4 @@ default = ["macro"]
 macro = ["dep:syscaller-wrap-macro"]
 
 [dependencies]
-syscaller-wrap-macro = { path = "../syscaller-wrap-macro", optional = true, version = "0.2.0" }
+syscaller-wrap-macro = { path = "../syscaller-wrap-macro", optional = true, version = "0.2.1" }
