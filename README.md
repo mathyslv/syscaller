@@ -38,7 +38,7 @@ Their signatures are `syscallX(syscallId: usize, args...: usize)`.
 ```rust
 use syscaller::*;
 
-let written = unsafe { syscall1(1, b"Hello, World!\n".as_ptr() as usize) }; // write syscall
+let written = unsafe { syscall3(1, 1, b"Hello, World!\n".as_ptr() as usize, 14) }; // write syscall
 ```
 
 ### Macro Usage
