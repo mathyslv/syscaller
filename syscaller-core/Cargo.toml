@@ -1,5 +1,5 @@
 [package]
-name = "syscaller"
+name = "syscaller-core"
 description = "No-std Linux direct syscall library"
 
 authors.workspace = true
@@ -11,10 +11,3 @@ keywords.workspace = true
 license.workspace = true
 repository.workspace = true
 version.workspace = true
-
-[features]
-default = ["macro"]
-macro = ["dep:syscaller-wrap-macro"]
-
-[dependencies]
-syscaller-wrap-macro = { path = "../syscaller-wrap-macro", optional = true, version = "0.2.1" }

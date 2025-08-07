@@ -8,13 +8,15 @@
 !.github/**
 !.git/
 !.git/**
+!src/**
+!src/
 !.gitignore
 !README.md
 !Cargo.toml
 !Cargo.lock
 !LICENSE*
 !deny.toml
-!/syscaller/
+!/syscaller-core/
 !/syscaller-wrap-macro/
 !CHANGELOG.md
 

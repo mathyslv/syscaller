@@ -1,8 +1,5 @@
 #![no_std]
 
-#[cfg(feature = "macro")]
-pub use syscaller_wrap_macro::wrap_syscall;
-
 /// Make a syscall with 0 arguments.
 ///
 /// # Safety

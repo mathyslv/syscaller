@@ -1,5 +1,5 @@
 [workspace]
-members = ["syscaller", "syscaller-wrap-macro"]
+members = ["syscaller-core", "syscaller-wrap-macro"]
 resolver = "2"
 
 [workspace.package]
@@ -13,6 +13,31 @@ license = "MIT OR Apache-2.0"
 repository = "https://github.com/mathyslv/syscaller"
 rust-version = "1.85.1"
 version = "0.2.1"
+
+[lib]
+bench = false
+
+[package]
+name = "syscaller"
+description = "No-std Linux direct syscall library"
+
+authors.workspace = true
+categories.workspace = true
+documentation.workspace = true
+edition.workspace = true
+homepage.workspace = true
+keywords.workspace = true
+license.workspace = true
+repository.workspace = true
+version.workspace = true
+
+[dependencies]
+syscaller-core = { path = "./syscaller-core", version = "0.2.0" }
+syscaller-wrap-macro = { path = "./syscaller-wrap-macro", optional = true, version = "0.2.0" }
+
+[features]
+default = ["macro"]
+macro = ["dep:syscaller-wrap-macro"]
 
 [profile.release]
 panic = "abort"

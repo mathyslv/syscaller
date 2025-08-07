@@ -35,8 +35,13 @@ dependencies = [
 name = "syscaller"
 version = "0.2.1"
 dependencies = [
+ "syscaller-core",
  "syscaller-wrap-macro",
 ]
+
+[[package]]
+name = "syscaller-core"
+version = "0.2.1"
 
 [[package]]
 name = "syscaller-wrap-macro"
