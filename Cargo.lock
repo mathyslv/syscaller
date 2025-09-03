@@ -33,7 +33,7 @@ dependencies = [
 
 [[package]]
 name = "syscaller"
-version = "0.2.2"
+version = "0.2.3"
 dependencies = [
  "syscaller-core",
  "syscaller-wrap-macro",
@@ -41,11 +41,11 @@ dependencies = [
 
 [[package]]
 name = "syscaller-core"
-version = "0.2.2"
+version = "0.2.3"
 
 [[package]]
 name = "syscaller-wrap-macro"
-version = "0.2.2"
+version = "0.2.3"
 dependencies = [
  "proc-macro2",
  "quote",
