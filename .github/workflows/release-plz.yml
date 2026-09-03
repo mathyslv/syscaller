@@ -25,7 +25,7 @@ jobs:
           fetch-depth: 0
           persist-credentials: true
       - name: Install Rust toolchain
-        uses: dtolnay/rust-toolchain@stable
+        uses: dtolnay/rust-toolchain@6bed0761d98439e5a578e2877258200ad565ba87 # stable
       - name: Run release-plz
         uses: release-plz/action@f4facd4a76fecd4b1b94f718c4f5e80510150720 # v0.5
         with:
@@ -57,7 +57,7 @@ jobs:
           fetch-depth: 0
           persist-credentials: true
       - name: Install Rust toolchain
-        uses: dtolnay/rust-toolchain@stable
+        uses: dtolnay/rust-toolchain@6bed0761d98439e5a578e2877258200ad565ba87 # stable
       - name: Run release-plz
         uses: release-plz/action@f4facd4a76fecd4b1b94f718c4f5e80510150720 # v0.5
         with:
